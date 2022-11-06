@@ -1,8 +1,9 @@
 from PIL import Image
 import os
 
-path = 'C:\\Users\\Klaid\\Desktop\\Dalisa\\'
+path = 'your local path'
 entries = os.listdir(path)
+# Sort file for their name
 entries.sort(key=lambda f: str(filter(str, f)))
 img_list = []
 img_to_merge = set
@@ -11,7 +12,7 @@ for entry in entries:
     img_to_merge = Image.open(full_path)
     img_to_merge.convert('RGB')
     img_list.append(img_to_merge)
-    #print(full_path)
-img_to_merge.save(path + 'korca_images_to_print_2.pdf', save_all=True, append_images=img_list)
+# Merge the image list
+img_to_merge.save(path + 'jpg_image_to_pdf_format.pdf', save_all=True, append_images=img_list)
  
 print('Merge Complete!')
